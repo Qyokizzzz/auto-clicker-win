@@ -1,10 +1,10 @@
 import keyboard
 import threading
-from time import sleep
 from PyQt6 import QtCore
 from PyQt6.QtWidgets import QMainWindow, QLabel, QSpinBox, QDoubleSpinBox, QPushButton, QRadioButton, \
     QLineEdit, QComboBox, QVBoxLayout, QHBoxLayout, QCheckBox
 from src.AutoClicker import AutoClicker
+from src.Utils import sleep
 
 class DZAutoClickerUI(QMainWindow):
 

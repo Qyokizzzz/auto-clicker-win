@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
-from time import sleep
 import pyautogui as pg
+from src.Utils import sleep
 
 class Button(ABC):
     def __init__(self, button, click_type, duration, x = None, y = None):
@@ -44,7 +44,6 @@ class MouseButton(Button):
         pg.mouseDown(self.x, self.y, button=self.button)
         sleep(self.duration)
         pg.mouseUp(self.x, self.y, button=self.button)
-
 
 class KeyboardButton(Button):
     def __init__(self, button, click_type, duration):

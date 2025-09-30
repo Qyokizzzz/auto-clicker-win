@@ -1,8 +1,8 @@
 import keyboard
 import threading
 import argparse
-from time import sleep
 from src.Button import KeyboardButton, MouseButton
+from src.Utils import sleep
 
 class AutoClicker:
     def __init__(self, repeat_key, click_type, interval, duration, hotkey, x = None, y = None, times = None):

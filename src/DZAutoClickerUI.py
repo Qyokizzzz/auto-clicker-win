@@ -46,7 +46,7 @@ class DZAutoClickerUI(QMainWindow):
 
         self.duration_label = QLabel('按住时长:', self)
         # self.duration_input = QDoubleSpinBox(self)
-        self.duration_input = QLineEdit('1', self)
+        self.duration_input = QLineEdit('510', self)
         self.duration_input.setFixedWidth(80)
         self.duration_input.setEnabled(False)
         duration_hbox = QHBoxLayout()

@@ -38,11 +38,11 @@ class AutoClicker:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--repeat_key', type=str, default='f')
-    parser.add_argument('--click_type', type=int, default=0)
-    parser.add_argument('--interval', type=int, default=0.1)
+    parser.add_argument('--repeat_key', type=str, default='mouseLeft')
+    parser.add_argument('--click_type', type=int, default=2)
+    parser.add_argument('--interval', type=int, default=1)
     parser.add_argument('--duration', type=int, default=1)
-    parser.add_argument('--hotkey', type=str, default='f4')
+    parser.add_argument('--hotkey', type=str, default='f2')
 
     parser.add_argument('--x', type=int, default=None)
     parser.add_argument('--y', type=int, default=None)

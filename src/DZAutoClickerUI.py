@@ -176,18 +176,17 @@ class DZAutoClickerUI(QMainWindow):
         self.recover()
 
     def add_hotkey_listener(self):
-        clicker = self.clicker
-        if not clicker:
+        if not self.clicker:
             return
 
         while self.listening:
-            if keyboard.is_pressed(clicker.hotkey):
-                clicker.trigger = not clicker.trigger
+            if keyboard.is_pressed(self.clicker.hotkey):
+                self.clicker.trigger = not self.clicker.trigger
 
-                if clicker.trigger:
-                    clicker.start()
+                if self.clicker.trigger:
+                    self.clicker.start()
                 else:
-                    clicker.stop()
+                    self.clicker.stop()
 
                 sleep(1)
 

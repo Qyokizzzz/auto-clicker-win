@@ -1,10 +1,10 @@
 import keyboard
 import threading
 from PyQt6 import QtCore
-from PyQt6.QtWidgets import QMainWindow, QLabel, QSpinBox, QDoubleSpinBox, QPushButton, QRadioButton, \
+from PyQt6.QtWidgets import QMainWindow, QLabel, QSpinBox, QPushButton, QRadioButton, \
     QLineEdit, QComboBox, QVBoxLayout, QHBoxLayout, QCheckBox
 from src.AutoClicker import AutoClicker
-from src.Utils import sleep
+from time import sleep
 
 class DZAutoClickerUI(QMainWindow):
 
@@ -37,14 +37,16 @@ class DZAutoClickerUI(QMainWindow):
 
         # area2
         self.interval_label = QLabel('间隔:', self)
-        self.interval_input = QDoubleSpinBox(self)
+        # self.interval_input = QDoubleSpinBox(self)
+        self.interval_input = QLineEdit('1', self)
         self.interval_input.setFixedWidth(80)
         interval_hbox = QHBoxLayout()
         interval_hbox.addWidget(self.interval_label, 1)
         interval_hbox.addWidget(self.interval_input, 1)
 
         self.duration_label = QLabel('按住时长:', self)
-        self.duration_input = QDoubleSpinBox(self)
+        # self.duration_input = QDoubleSpinBox(self)
+        self.duration_input = QLineEdit('1', self)
         self.duration_input.setFixedWidth(80)
         self.duration_input.setEnabled(False)
         duration_hbox = QHBoxLayout()
@@ -63,7 +65,7 @@ class DZAutoClickerUI(QMainWindow):
         self.cur_pos_checkbox.stateChanged.connect(self.handle_cur_pos_changed)
 
         self.hotkey_label = QLabel('热键', self)
-        self.hotkey_input = QLineEdit('f4', self)
+        self.hotkey_input = QLineEdit('f2', self)
         self.hotkey_input.setFixedWidth(80)
         hotkey_hbox = QHBoxLayout()
         hotkey_hbox.addWidget(self.hotkey_label, 1)
@@ -136,7 +138,7 @@ class DZAutoClickerUI(QMainWindow):
         self.setLayout(btn_hbox)
 
         self.status_bar = self.statusBar()
-        self.status_bar.showMessage('每次修改配置前需要停止当前监听')
+        self.status_bar.showMessage('每次修改配置前需要停止当前监听，时间单位为毫秒。')
 
         self.setGeometry(300, 300, 450, 350)
         self.setWindowTitle('DZ Auto Clicker')
@@ -226,8 +228,8 @@ class DZAutoClickerUI(QMainWindow):
     def init_clicker(self):
         repeat_key = self.repeat_key_input.text()
         click_type = self.click_type
-        interval = int(self.interval_input.value())
-        duration = int(self.duration_input.value())
+        interval = float(self.interval_input.text())
+        duration = float(self.duration_input.text())
         hotkey = self.hotkey_input.text()
 
         x = None
